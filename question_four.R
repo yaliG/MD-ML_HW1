@@ -1,0 +1,5 @@
+library(tidyverse)
+trips <- readr::read_csv("data/question_three_trips.csv") %>% select(-X1_1, -X1)
+fares <- readr::read_csv("data/question_three_fares.csv") %>% select(-X1_1, -X1)
+taxi_data <- left_join(trips, fares)
+write.csv(taxi_data, file.path ("data", "question_four.csv"))
